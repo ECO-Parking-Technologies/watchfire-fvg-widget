@@ -3,11 +3,12 @@
 /* exported FvgClient */
 
 /** Lightweight client for the Falcon Vision Gateway REST API. */
-var FvgClient = function (baseUrl, apiKey, proxyUrl) {
+var FvgClient = function (baseUrl, apiKey, proxyUrl, clientId) {
     'use strict';
 
     var trimmedBase = (baseUrl || '').replace(/\/+$/, '');
     var proxy = (proxyUrl || '').replace(/\/+$/, '');
+    var clientIdHeader = (clientId || '').trim() || 'watchfiresigns';
 
     return {
         getSignValue: getSignValue
@@ -26,7 +27,7 @@ var FvgClient = function (baseUrl, apiKey, proxyUrl) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.setRequestHeader('Accept', 'application/json');
-        xhr.setRequestHeader('X-Client-Id', 'watchfiresigns');
+        xhr.setRequestHeader('X-Client-Id', clientIdHeader);
         if (apiKey) {
             xhr.setRequestHeader('X-API-KEY', apiKey);
         }

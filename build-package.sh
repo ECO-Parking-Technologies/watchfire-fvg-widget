@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 # Packages this widget for upload to Watchfire Ignite.
 #
-# Zips everything in the repo except git metadata and Markdown docs
-# (README.md, CLAUDE.md, etc) — those are for developers, not the player.
+# Zips everything in the repo except git/CI metadata (.git, .github,
+# .gitignore), Markdown docs (README.md, CLAUDE.md, etc), and this repo's own
+# VERSION file — those are for developers, not the player. Ignite's uploader
+# appears to reject packages containing files outside the widget's own set
+# (index.html, css/, js/, fonts/, template.xml, icon/preview images), so the
+# zip's contents match the widget exactly; version/commit/build-time
+# traceability lives only in the output filename.
 #
 # Usage: ./build-package.sh [output-name.zip]
 
@@ -43,23 +48,16 @@ rm -f "$OUT_PATH"
 
 zip -r "$OUT_PATH" . \
     -x '.git/*' \
+    -x '.github/*' \
     -x '.gitignore' \
     -x '*.md' \
+    -x 'VERSION' \
     -x "$OUT_DIR/*" \
     -x 'build-package.sh' \
     -x '*.DS_Store' \
     > /dev/null
 
-BUILD_INFO_DIR="$(mktemp -d)"
-trap 'rm -rf "$BUILD_INFO_DIR"' EXIT
-{
-    echo "version: $VERSION"
-    echo "commit: $COMMIT"
-    echo "buildTimeUtc: $BUILD_TIME_UTC"
-} > "$BUILD_INFO_DIR/build-info.txt"
-zip -j "$OUT_PATH" "$BUILD_INFO_DIR/build-info.txt" > /dev/null
-
-echo "Wrote $OUT_PATH (version=$VERSION, built=$BUILD_TIME_UTC)"
+echo "Wrote $OUT_PATH (version=$VERSION, commit=$COMMIT, built=$BUILD_TIME_UTC)"
 echo
 echo "Contents:"
 unzip -l "$OUT_PATH"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Template id="600" lastModified="2026-07-07 00:00:00.0 GMT">
+<Template id="600" lastModified="2026-09-01 00:00:00.0 GMT">
 <Properties>
   <Property>
     <Name>apiBaseUrl</Name>
@@ -20,6 +20,13 @@
     <Value></Value>
     <Label>API Key</Label>
     <Description>Optional value sent as the X-API-KEY header for FVG signs.read permission. Leave blank if no auth.</Description>
+    <Type>string</Type>
+  </Property>
+  <Property>
+    <Name>clientId</Name>
+    <Value>watchfiresigns</Value>
+    <Label>Client ID</Label>
+    <Description>Value sent as the X-Client-Id header. Set a unique value per placement (e.g. watchfire-carmel-1) for FVG heartbeat matching, or leave as watchfiresigns.</Description>
     <Type>string</Type>
   </Property>
   <Property>

@@ -27,7 +27,7 @@
     var alertRegex = compileRegex(parameters.alertRegex);
     var offlineDelayMs = clampInt(parameters.offlineDelaySeconds, 0, 300, 5) * 1000;
 
-    var client = FvgClient(parameters.apiBaseUrl, parameters.apiKey, parameters._proxyURL);
+    var client = FvgClient(parameters.apiBaseUrl, parameters.apiKey, parameters._proxyURL, parameters.clientId);
 
     var content = document.getElementById('content');
     var nameCell = document.getElementById('nameCell');

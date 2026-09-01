@@ -34,6 +34,7 @@ a track → **Properties → Parameters**. Key fields:
 | FVG Base URL | Address of the gateway, e.g. `http://192.168.1.100` |
 | Sign ID | Which FVG-managed sign to display |
 | API Key | Optional, if the gateway requires it |
+| Client ID | Value sent as `X-Client-Id`. Set a unique value per placement (e.g. `watchfire-carmel-1`) if FVG's heartbeat matching for that sign expects one; defaults to `watchfiresigns` |
 | Sign Name / Sign Count | Toggle each on/off independently |
 | Text Font / Colors | Styling, including a separate alert color |
 | Alert Values | Regex — counts matching this show in the alert color |
@@ -42,11 +43,11 @@ a track → **Properties → Parameters**. Key fields:
 
 ## Known limitation
 
-FVG currently has no reliable way to tell *which* physical Watchfire sign is
-polling a given counter — every widget instance identifies itself the same
-way. Correctness today depends on the Ignite Parameters being set up
-correctly for each placement. See `CLAUDE.md` for details and the proposed
-fix.
+Each placement can now send a distinct `X-Client-Id` (see the Client ID
+parameter above) so FVG's per-sign heartbeat matching can tell which
+physical sign is polling — but it's opt-in per placement. Anything left on
+the default `watchfiresigns` value is still indistinguishable from every
+other unconfigured placement. See `CLAUDE.md` for details.
 
 ## More detail
 
