@@ -1,0 +1,41 @@
+name: Build Widget Package
+
+# The widget package is only built when a release is published (or on
+# manual dispatch), not on every push — one release, one build.
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build package
+        run: bash build-package.sh
+
+      - name: Set package info
+        id: package-info
+        run: |
+          PACKAGE_PATH=$(ls dist/*.zip)
+          echo "package-path=$PACKAGE_PATH" >> "$GITHUB_OUTPUT"
+          echo "package-name=$(basename "$PACKAGE_PATH")" >> "$GITHUB_OUTPUT"
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ steps.package-info.outputs.package-name }}
+          path: ${{ steps.package-info.outputs.package-path }}
+
+      - name: Upload package as release asset
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload '${{ github.event.release.tag_name }}' \
+            '${{ steps.package-info.outputs.package-path }}' --clobber --repo '${{ github.repository }}'
