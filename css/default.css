@@ -1,0 +1,54 @@
+/* Copyright (c) 2026 Watchfire Signs, LLC. All rights reserved. */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+}
+
+#content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.cell {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    min-width: 0;
+    min-height: 0;
+}
+
+#nameCell { justify-content: flex-start; }
+#valueCell { justify-content: flex-end; }
+
+.cell-text {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+#content.offline #valueCell .cell-text {
+    opacity: 0.55;
+}
+
+#content.hide-name #nameCell,
+#content.hide-value #valueCell {
+    display: none;
+}
+
+#content.hide-name #valueCell,
+#content.hide-value #nameCell {
+    justify-content: center;
+}
+
+#content.blanked .cell-text {
+    visibility: hidden;
+}

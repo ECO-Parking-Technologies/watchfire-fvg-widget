@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Template id="600" lastModified="2026-07-07 00:00:00.0 GMT">
+<Properties>
+  <Property>
+    <Name>apiBaseUrl</Name>
+    <Value>http://192.168.1.100</Value>
+    <Label>FVG Base URL</Label>
+    <Description>Base URL of the Falcon Vision Gateway (e.g. http://192.168.1.100). No trailing slash.</Description>
+    <Type>string</Type>
+  </Property>
+  <Property>
+    <Name>signId</Name>
+    <Value>1</Value>
+    <Label>Sign ID</Label>
+    <Description>FVG sign ID to display. Place additional widgets to show more signs.</Description>
+    <Type>string</Type>
+  </Property>
+  <Property>
+    <Name>apiKey</Name>
+    <Value></Value>
+    <Label>API Key</Label>
+    <Description>Optional value sent as the X-API-KEY header for FVG signs.read permission. Leave blank if no auth.</Description>
+    <Type>string</Type>
+  </Property>
+  <Property>
+    <Name>showName</Name>
+    <Value>Show</Value>
+    <Label>Sign Name</Label>
+    <Description>Show or hide the sign name. Choose Hide for a count-only display.</Description>
+    <Type>list</Type>
+    <Options>Show,Hide</Options>
+  </Property>
+  <Property>
+    <Name>showValue</Name>
+    <Value>Show</Value>
+    <Label>Sign Count</Label>
+    <Description>Show or hide the sign count. Choose Hide for a name-only display.</Description>
+    <Type>list</Type>
+    <Options>Show,Hide</Options>
+  </Property>
+  <Property>
+    <Name>textFont</Name>
+    <Value>WF Faceplate Bold</Value>
+    <Label>Text Font</Label>
+    <Description>Font to use for text</Description>
+    <Type>list</Type>
+    <Options>Watchfire Regular,Watchfire Regular Bold,WF Krasivyi Regular,WF Krasivyi Bold,WF Faceplate Regular,WF Faceplate Bold,-,Cabin,Cabin Bold,Cabin Medium,Cabin SemiBold,Chivo Bold,Cooper Hewitt Bold,Cooper Hewitt Semibold,Dosis Bold,Dosis Extra Bold,Encode Sans Black,League Spartan Bold,Montserrat Extra Bold,Roboto Black,Roboto Bold,Roboto Mono,Roboto Mono Medium,Work Sans Bold</Options>
+  </Property>
+  <Property>
+    <Name>nameColor</Name>
+    <Value>c8d2e0</Value>
+    <Label>Name Color</Label>
+    <Description>Color of the sign name text</Description>
+    <Type>Color</Type>
+  </Property>
+  <Property>
+    <Name>valueColor</Name>
+    <Value>3ddc84</Value>
+    <Label>Count Color</Label>
+    <Description>Color of the sign count text</Description>
+    <Type>Color</Type>
+  </Property>
+  <Property>
+    <Name>alertColor</Name>
+    <Value>ff0000</Value>
+    <Label>Alert Color</Label>
+    <Description>Color used for the count when it matches the Alert Values pattern</Description>
+    <Type>Color</Type>
+  </Property>
+  <Property>
+    <Name>alertRegex</Name>
+    <Value>^\s*(?:0|closed|clsd|full)\s*$</Value>
+    <Label>Alert Values</Label>
+    <Description>Case-insensitive regular expression. Counts that match display in the Alert Color. Leave blank to disable.</Description>
+    <Type>string</Type>
+  </Property>
+  <Property>
+    <Name>pollIntervalMs</Name>
+    <Value>500</Value>
+    <Label>Poll Interval (ms)</Label>
+    <Description>How often to query the FVG API for new values (100-60000)</Description>
+    <Type>string</Type>
+  </Property>
+  <Property>
+    <Name>offlineDelaySeconds</Name>
+    <Value>5</Value>
+    <Label>Offline Delay (s)</Label>
+    <Description>Seconds of continuous failed polls before the count switches to --. The last good count stays up during the delay (0-300).</Description>
+    <Type>string</Type>
+  </Property>
+</Properties>
+</Template>

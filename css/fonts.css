@@ -1,0 +1,93 @@
+/* Copyright (c) 2016 Watchfire Signs, LLC. All rights reserved. */
+@font-face {
+    font-family: "Cabin";
+    src: url("../fonts/Cabin-Regular.otf") format("opentype");
+}
+@font-face {
+    font-family: "Cabin Bold";
+    src: url("../fonts/Cabin-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Cabin Medium";
+    src: url("../fonts/Cabin-Medium.otf") format("opentype");
+}
+@font-face {
+    font-family: "Cabin SemiBold";
+    src: url("../fonts/Cabin-SemiBold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Chivo Bold";
+    src: url("../fonts/Chivo-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Cooper Hewitt Bold";
+    src: url("../fonts/CooperHewitt-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Cooper Hewitt Semibold";
+    src: url("../fonts/CooperHewitt-Semibold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Dosis Bold";
+    src: url("../fonts/Dosis-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Dosis Extra Bold";
+    src: url("../fonts/Dosis-ExtraBold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Encode Sans Black";
+    src: url("../fonts/EncodeSans-Black.ttf") format("truetype");
+}
+@font-face {
+    font-family: "League Spartan Bold";
+    src: url("../fonts/LeagueSpartan-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Montserrat Extra Bold";
+    src: url("../fonts/Montserrat-ExtraBold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Roboto Black";
+    src: url("../fonts/Roboto-Black.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Roboto Bold";
+    src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Roboto Mono";
+    src: url("../fonts/RobotoMono-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Roboto Mono Medium";
+    src: url("../fonts/RobotoMono-Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Work Sans Bold";
+    src: url("../fonts/WorkSans-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Watchfire Regular";
+    src: url("../fonts/WatchfireRegular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Watchfire Regular Bold";
+    src: url("../fonts/WatchfireRegularBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "WF Krasivyi Regular";
+    src: url("../fonts/WFKrasivyiRegular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "WF Krasivyi Bold";
+    src: url("../fonts/WFKrasivyiBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "WF Faceplate Regular";
+    src: url("../fonts/WFFaceplateRegular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "WF Faceplate Bold";
+    src: url("../fonts/WFFaceplateBold.ttf") format("truetype");
+}
